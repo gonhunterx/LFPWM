@@ -8,21 +8,21 @@ with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
 VERSION = '0.0.13'
-DESCRIPTION = 'Streaming video data via networks'
-LONG_DESCRIPTION = 'A package that allows to build simple streams of video, audio and camera data.'
+DESCRIPTION = 'LamaForge Encrypted Password Manager'
+LONG_DESCRIPTION = 'A package that allows you to store encrypted data locally.'
 
 # Setting up
 setup(
-    name="vidstream",
+    name="LFPWM",
     version=VERSION,
-    author="NeuralNine (Florian Dedov)",
-    author_email="<mail@neuralnine.com>",
+    author="LamaForge (Jadon Lama)",
+    author_email="<lamaforgecode@gmail.com>",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
     long_description=long_description,
     packages=find_packages(),
-    install_requires=['opencv-python', 'pyautogui', 'pyaudio'],
-    keywords=['python', 'video', 'stream', 'video stream', 'camera stream', 'sockets'],
+    install_requires=['sqlite3', 'bcrypt'],
+    keywords=['python', 'encryption', 'data', 'password manager', 'user auth'],
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
