@@ -19,7 +19,7 @@ setup(
     install_requires=['sqlite3', 'bcrypt'],
     keywords=['python', 'encryption', 'data', 'password manager', 'user auth'],
     classifiers=[
-        "Development Status :: 1 - Planning",
+        "Development Status :: 1 - Releasing",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "Operating System :: Unix",
