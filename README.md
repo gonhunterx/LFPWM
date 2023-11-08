@@ -6,3 +6,4 @@ Developed in: VSCode
 Step 1: pip install LFPWM
 
 Step 2: In a terminal window run "python LFPWM_main.py"
+
