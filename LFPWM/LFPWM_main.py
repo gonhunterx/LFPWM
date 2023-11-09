@@ -69,9 +69,9 @@ def main():
         conn.close()
 
 
-# if __name__ == "__main__":
-#     create_users_data_table()
-#     main()
+if __name__ == "__main__":
+    create_users_data_table()
+    main()
 
 # change the main statement into another user level function that they have access to throught he package
 # and the first thing they run is main and others will be able to run it.
