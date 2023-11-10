@@ -23,9 +23,9 @@ Step 1: pip install LFPWM
 After installation,
 LFPWM pip package usage:
 
-Password Manager (PasswordManager)
+# Password Manager (PasswordManager)
 The PasswordManager class in the LFPWM package is designed to handle the encryption and decryption of passwords. It utilizes the Fernet symmetric encryption scheme from the cryptography library.
-Methods
+Methods:
 encrypt_password(password: str) -> bytes
 Encrypts the given plaintext password.
 Parameters:
@@ -40,7 +40,7 @@ encrypted_password (bytes): The encrypted password.
 Returns:
 
 str: The decrypted plaintext password.
-User Class (User)
+# User Class (User)
 The User class represents a user entity and includes methods for managing user information and storing encrypted passwords.
 
 Methods
