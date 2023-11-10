@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 
-VERSION = "1.0.0"
+VERSION = "1.0.2"
 DESCRIPTION = "LamaForge Encrypted Password Manager"
 LONG_DESCRIPTION = "A package that allows you to store encrypted data locally."
 
@@ -15,7 +15,7 @@ setup(
     long_description_content_type="text/markdown",
     long_description=LONG_DESCRIPTION,
     packages=find_packages(),
-    install_requires=["sqlite3", "bcrypt"],
+    install_requires=["bcrypt"],
     keywords=["python", "encryption", "data", "password manager", "user auth"],
     classifiers=[
         "Development Status :: 3 - Alpha",

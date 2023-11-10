@@ -1,6 +1,6 @@
-from sql_db import create_connection, create_database, create_users_data_table
-from users import User
-from home import home_page
+from LFPWM.sql_db import create_connection, create_database, create_users_data_table
+from LFPWM.users import User
+from LFPWM.home import home_page
 
 conn, c = create_connection()
 

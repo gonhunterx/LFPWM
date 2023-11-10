@@ -1,18 +1,17 @@
 Metadata-Version: 2.1
 Name: LFPWM
-Version: 1.0.0
+Version: 1.0.2
 Summary: LamaForge Encrypted Password Manager
 Author: LamaForge (Jadon Lama)
 Author-email: <lamaforgecode@gmail.com>
 Keywords: python,encryption,data,password manager,user auth
-Classifier: Development Status :: 1 - Releasing
+Classifier: Development Status :: 3 - Alpha
 Classifier: Intended Audience :: Developers
 Classifier: Programming Language :: Python :: 3
 Classifier: Operating System :: Unix
 Classifier: Operating System :: MacOS :: MacOS X
 Classifier: Operating System :: Microsoft :: Windows
 Description-Content-Type: text/markdown
-Requires-Dist: sqlite3
 Requires-Dist: bcrypt
 
 A package that allows you to store encrypted data locally.
