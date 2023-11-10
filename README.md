@@ -111,7 +111,7 @@ Item_to_encrypt = “Hello World”
 encrypted_item = PasswordManager.encrypt_password(Item_to_encrypt)
 print(encrypted_item) 
 ```
-# This will print as an encrypted token. 
+This will print as an encrypted token. 
 You can also use the PasswordManager’s decrypt_password static method. This will allow you to view the original value behind an encrypted one. 
 # You can use it like this: 
 ```
