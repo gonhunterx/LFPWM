@@ -20,6 +20,9 @@ Link to repository:  https://github.com/gonhunterx/LFPWM
 go to the Example Usage in Python section)
 
 Step 1: pip install LFPWM
+Step 2: from LFPWM import * 
+(This step will allow you to access all functionality of the LFPWM Package. 
+
 After installation,
 LFPWM pip package usage:
 
@@ -37,7 +40,6 @@ Decrypts the given encrypted password.
 
 Parameters:
 encrypted_password (bytes): The encrypted password.
-Returns:
 
 str: The decrypted plaintext password.
 # User Class (User)
