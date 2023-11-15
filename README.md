@@ -1,6 +1,7 @@
 # LFPWM
 
 If you are using it for the first time, you must create a user data table.
+
 Developed in: VSCode
 
 LamaForge PW Manager pip Package Documentation
@@ -19,72 +20,78 @@ Link to repository: https://github.com/gonhunterx/LFPWM
 (For specific use examples of methods and parameters
 go to the Example Usage in Python section)
 
-Step 1: pip install LFPWM
+Step 1 (in terminal):
+
+```
+pip install LFPWM
+```
+
 Step 2: from LFPWM import \*
-(This step will allow you to access all functionality of the LFPWM Package.
+(This step will allow you to access all functionality of the LFPWM Package.)
 
 After installation,
+
 LFPWM pip package usage:
 
 # Password Manager (PasswordManager)
 
 The PasswordManager class in the LFPWM package is designed to handle the encryption and decryption of passwords. It utilizes the Fernet symmetric encryption scheme from the cryptography library.
-Methods:
+
+### Methods:
+
 encrypt_password(password: str) -> bytes
 Encrypts the given plaintext password.
-Parameters:
+
+### Parameters:
+
 password (str): The plaintext password to be encrypted.
-Returns:
-bytes: The encrypted password.
-decrypt_password(encrypted_password: bytes) -> str
+Returns: The encrypted password.
+
+decrypt_password(encrypted_password) -> str
 Decrypts the given encrypted password.
 
-Parameters:
-encrypted_password (bytes): The encrypted password.
+### Parameters:
 
+encrypted_password: The encrypted password.
 str: The decrypted plaintext password.
 
 # User Class (User)
 
 The User class represents a user entity and includes methods for managing user information and storing encrypted passwords.
 
-Methods
+### Methods:
+
 set_username(new_username: str) -> None
 Updates the username for the user.
 
-Parameters:
+### Parameters:
+
 new_username (str): The new username to set.
-Returns:
-None
+
 set_password(new_password: str) -> None
 Updates the password for the user.
 
-Parameters:
+### Parameters:
+
 new_password (str): The new password to set.
-Returns:
-None
+
 insert_data(title: str, data: str) -> None
 Inserts encrypted password data into the UserData table.
 
-Parameters:
+### Parameters:
+
 title (type: string): The title associated with the stored password.
 data (type: string): The plaintext password to be encrypted and stored.
-Returns:
-None
+
 get_data() -> None
 Retrieves and decrypts stored password data from the UserData table, then prints it.
 
-Parameters:
-None
-Returns:
-None
 remove_data(data_to_delete: str) -> None
+
 Deletes password data associated with a given title.
 
 Parameters:
 data_to_delete (str): The title of the data to be deleted.
-Returns:
-None
 
 Example Usage
 In Python:
@@ -93,27 +100,39 @@ from LFPWM import User
 
 # Create a user instance
 
+```
 user = User("example_user", "example_password")
+```
 
 # Set a new username
 
+```
 user.set_username("new_username")
+```
 
 # Set a new password
 
+```
 user.set_password("new_password")
+```
 
 # Insert data into UserData table
 
+```
 user.insert_data("Email", "user@example.com")
+```
 
 # Retrieve and print stored data
 
+```
 user.get_data()
+```
 
 # Remove data by title
 
+```
 user.remove_data("Email")
+```
 
 # Encrypt your own data for use
 

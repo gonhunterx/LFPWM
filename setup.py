@@ -1,9 +1,15 @@
 from setuptools import setup, find_packages
 
 
-VERSION = "1.0.2"
+from pathlib import Path
+
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text(encoding="utf-8")
+
+
+VERSION = "1.0.5"
 DESCRIPTION = "LamaForge Encrypted Password Manager"
-LONG_DESCRIPTION = "A package that allows you to store encrypted data locally."
+# LONG_DESCRIPTION = ""
 
 # Setting up
 setup(
@@ -13,7 +19,7 @@ setup(
     author_email="<lamaforgecode@gmail.com>",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
-    long_description=LONG_DESCRIPTION,
+    long_description=long_description,
     packages=find_packages(),
     install_requires=["bcrypt"],
     keywords=["python", "encryption", "data", "password manager", "user auth"],

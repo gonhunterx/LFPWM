@@ -1,4 +1,4 @@
-from sql_db import create_tables
+from LFPWM.sql_db import create_tables
 
 
 def main():

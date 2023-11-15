@@ -7,10 +7,26 @@ key = Fernet.generate_key()
 cipher_suite = Fernet(key)
 
 
+# PasswordManager is a class used within the User class for its static methods.
+# you can also create an instance of it and use its methods for creating your own variables.
+class PasswordManager:
+    @staticmethod
+    def encrypt_password(password):
+        encrypted_password = cipher_suite.encrypt(password.encode())
+        return encrypted_password
+
+    @staticmethod
+    def decrypt_password(encrypted_password):
+        decrypted_password = cipher_suite.decrypt(encrypted_password).decode()
+        return decrypted_password
+
+
 class User:
     def __init__(self, username, password):
         self.username = username
         self.password = password
+        # creating an instance to use in the class of the PWM class
+        self.password_manager = PasswordManager()
 
     def set_username(self, new_username):
         new_username = self.username
@@ -28,9 +44,8 @@ class User:
         )
         conn.commit()
 
-    # use the password encryption methods on the data to encrypt it while stored.
     def insert_data(self, title, data):
-        encrypted_data = encrypt_password(data)
+        encrypted_data = self.password_manager.encrypt_password(data)
         c.execute(
             "INSERT INTO UserData (user_id, title, data) VALUES (?, ?, ?)",
             # pass in the now encrypted data to the data row with the title
@@ -45,7 +60,7 @@ class User:
         rows = c.fetchall()
         # decrypt the password to view it
         for row in rows:
-            decrypted_data = decrypt_password(row[1])
+            decrypted_data = self.password_manager.decrypt_password(row[1])
             print(row[0], decrypted_data)
 
     def remove_data(self, data_to_delete):
@@ -57,27 +72,3 @@ class User:
         # except Exception as e:
         #     print(f"Error at {e}")
         conn.commit()
-
-    @staticmethod
-    def login(username, password):
-        c.execute(
-            "SELECT user_id FROM Users WHERE username = ? AND password = ?",
-            (username, password),
-        )
-        user_id = c.fetchone()
-        if user_id:
-            return user_id[0]
-        else:
-            return None
-        # print("User id not found")
-
-
-# create functions that will encrypt and decrypt a password
-def encrypt_password(password):
-    encrypted_password = cipher_suite.encrypt(password.encode())
-    return encrypted_password
-
-
-def decrypt_password(encrypted_password):
-    decrypted_password = cipher_suite.decrypt(encrypted_password).decode()
-    return decrypted_password

@@ -7,11 +7,15 @@ def create_connection():
     return conn, c
 
 
-def create_database():
+def create_tables():
+    # creating two tables within the users.db
     conn, c = create_connection()
-    c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='users'")
-    table_exsits = c.fetchone()
-    if not table_exsits:
+    # checking if the table already exists with sqlite_master
+    c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='Users'")
+    # by capturing the fetch from the above execute we are able to check if the table exists
+    table_exists = c.fetchone()
+    if not table_exists:
+        # creating the first table (Users) for user auth
         c.execute(
             """
         CREATE TABLE IF NOT EXISTS Users (
@@ -23,21 +27,21 @@ def create_database():
         )
     conn.commit()
 
-
-def create_users_data_table():
-    conn, c = create_connection()
     c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='UserData'")
-    table_exists = c.fetchone()
-    if not table_exists:
+    table2_exists = c.fetchone()
+    if not table2_exists:
         c.execute(
             """
         CREATE TABLE IF NOT EXISTS UserData (
             data_id INTEGER PRIMARY KEY,
             user_id INTEGER,
-            title TEXT,
-            data TEXT,
+            title TEXT NOT NULL,
+            data TEXT NOT NULL,
             FOREIGN KEY (user_id) REFERENCES Users(user_id)
         )
                   """
         )
     conn.commit()
+
+
+create_tables()
