@@ -2,7 +2,7 @@ import sqlite3
 
 
 def create_connection():
-    conn = sqlite3.connect("users.db")
+    conn = sqlite3.connect("./LFPWM/users.db")
     c = conn.cursor()
     return conn, c
 
