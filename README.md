@@ -37,7 +37,7 @@ LFPWM pip package usage:
 
 The PasswordManager class in the LFPWM package is designed to handle the encryption and decryption of passwords. It utilizes the Fernet symmetric encryption scheme from the cryptography library.
 
-### Methods:
+## Methods:
 
 encrypt_password(password: str) -> bytes
 Encrypts the given plaintext password.
@@ -59,23 +59,23 @@ str: The decrypted plaintext password.
 
 The User class represents a user entity and includes methods for managing user information and storing encrypted passwords.
 
-### Methods:
+## Methods:
 
-set_username(new_username: str) -> None
+set_username(new_username: str)
 Updates the username for the user.
 
 ### Parameters:
 
 new_username (str): The new username to set.
 
-set_password(new_password: str) -> None
+set_password(new_password: str)
 Updates the password for the user.
 
 ### Parameters:
 
 new_password (str): The new password to set.
 
-insert_data(title: str, data: str) -> None
+insert_data(title: str, data: str)
 Inserts encrypted password data into the UserData table.
 
 ### Parameters:
@@ -83,58 +83,58 @@ Inserts encrypted password data into the UserData table.
 title (type: string): The title associated with the stored password.
 data (type: string): The plaintext password to be encrypted and stored.
 
-get_data() -> None
+get_data()
 Retrieves and decrypts stored password data from the UserData table, then prints it.
 
-remove_data(data_to_delete: str) -> None
+remove_data(data_to_delete: str)
 
 Deletes password data associated with a given title.
 
 Parameters:
-data_to_delete (str): The title of the data to be deleted.
+data_to_delete(str): The title of the data to be deleted.
 
 Example Usage
 In Python:
 from LFPWM.sql_db import create_connection
 from LFPWM import User
 
-# Create a user instance
+## Create a user instance
 
 ```
 user = User("example_user", "example_password")
 ```
 
-# Set a new username
+## Set a new username
 
 ```
 user.set_username("new_username")
 ```
 
-# Set a new password
+## Set a new password
 
 ```
 user.set_password("new_password")
 ```
 
-# Insert data into UserData table
+## Insert data into UserData table
 
 ```
 user.insert_data("Email", "user@example.com")
 ```
 
-# Retrieve and print stored data
+## Retrieve and print stored data
 
 ```
 user.get_data()
 ```
 
-# Remove data by title
+## Remove data by title
 
 ```
 user.remove_data("Email")
 ```
 
-# Encrypt your own data for use
+## Encrypt your own data for use
 
 ```
 Item_to_encrypt = “Hello World”
@@ -145,14 +145,71 @@ print(encrypted_item)
 This will print as an encrypted token.
 You can also use the PasswordManager’s decrypt_password static method. This will allow you to view the original value behind an encrypted one.
 
-# You can use it like this:
+## You can use it like this:
 
 ```
 decrypted_item = PasswordManager.decrypt_password(encrypted_item)
 print(decrypted_item)
 ```
 
-# this will print “Hello World” (The decrypted value of encrypted_item)
+## This will print “Hello World” (The decrypted value of encrypted_item)
 
 This example demonstrates some possible use cases of the User, and PasswordManager classes and their associated methods.
 You can integrate these functionalities into your own projects for secure password management and other data storage uses for small to medium-sized projects.
+
+# Full scale use case:
+
+```
+from LFPWM.users import User
+
+if __name__ == "__main__":
+    # Register a new user
+    user = User.register("john_doe", "secure_password")
+
+    if user:
+        # Log in with the registered user
+        logged_in_user = User.login("john_doe", "secure_password")
+
+        if logged_in_user:
+            # Insert some password data
+            logged_in_user.insert_data("Email", "john_doe@example.com")
+            logged_in_user.insert_data("Bank", "1234")
+
+            # View stored password data
+            print("Stored password data:")
+            logged_in_user.get_data()
+
+            # Remove password data
+            logged_in_user.remove_data("Bank")
+
+            # View updated password data
+            print("Stored password data after removal:")
+            logged_in_user.get_data()
+
+            # Set a new username
+            logged_in_user.set_username("john_smith")
+
+            # Set a new password
+            logged_in_user.set_password("new_secure_password")
+
+            # Log out
+            print("Logging out.")
+            logged_in_user = None
+        else:
+            print("Login failed.")
+    else:
+        print("Registration failed.")
+
+```
+
+### The output for this file:
+
+```
+Registration successful.
+Stored password data:
+Email john_doe@example.com
+Bank 1234
+Stored password data after removal:
+Email john_doe@example.com
+Logging out.
+```

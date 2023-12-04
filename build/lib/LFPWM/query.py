@@ -1,4 +1,4 @@
-from LFPWM.sql_db import create_connection
+from sql_db import create_connection
 
 conn, c = create_connection()
 
