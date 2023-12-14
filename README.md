@@ -26,7 +26,14 @@ Step 1 (in terminal):
 pip install LFPWM
 ```
 
-Step 2: from LFPWM import \*
+Step 2a: (In your .py file)  
+```
+from LFPWM.users import User  
+```
+Step 2b: (In your .py file)  
+```
+from LFPWM.users import PasswordManager as pm
+```
 (This step will allow you to access all functionality of the LFPWM Package.)
 
 After installation,
@@ -36,6 +43,7 @@ LFPWM pip package usage:
 # Password Manager (PasswordManager)
 
 The PasswordManager class in the LFPWM package is designed to handle the encryption and decryption of passwords. It utilizes the Fernet symmetric encryption scheme from the cryptography library.
+
 
 ## Methods:
 

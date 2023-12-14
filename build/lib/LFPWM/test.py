@@ -1,4 +1,4 @@
-from users import User
+from LFPWM.users import User
 
 if __name__ == "__main__":
     # Register a new user
