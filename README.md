@@ -34,7 +34,7 @@ Step 2b: (In your .py file)
 ```
 from LFPWM.users import PasswordManager as pm
 ```
-(This step will allow you to access all functionality of the LFPWM Package.)
+(These steps will allow you to access all functionality of the LFPWM Package.)
 
 After installation,
 

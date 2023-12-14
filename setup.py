@@ -7,8 +7,8 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 
-VERSION = "1.0.8"
-DESCRIPTION = "LamaForge Encrypted Password Manager"
+VERSION = "1.0.9"
+DESCRIPTION = "LamaForge Encrypted Password Manager/User Auth"
 # LONG_DESCRIPTION = ""
 
 # Setting up
