@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: LFPWM
-Version: 1.0.9
-Summary: LamaForge Encrypted Password Manager
+Version: 1.1.0
+Summary: LamaForge Encrypted Password Manager/User Auth
 Author: LamaForge (Jadon Lama)
 Author-email: <lamaforgecode@gmail.com>
 Keywords: python,encryption,data,password manager,user auth
